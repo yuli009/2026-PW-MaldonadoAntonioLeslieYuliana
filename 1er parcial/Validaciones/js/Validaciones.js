@@ -7,46 +7,50 @@ Las validaciones para este formulario se realizaran  mediante el uso de Expresio
 Las expresiones regulares, son patrones que nos ayudan a validar cadenas bajo ciertas condiciones.
 */ 
 
-const patrones = {
-    nombre : /^[A-Za-zÁÉÍÓÚÑáéíóúñÜü\s]{2,60}$/,
-    boleta : /^\d{10}$/,
-    fecha : /^(0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("form-registro");
+  const nombre = document.getElementById("nombre");
+  const boleta = document.getElementById("boleta");
+  const fecha = document.getElementById("fecha");
 
-};
+  const errorNombre = document.getElementById("error-nombre");
+  const errorBoleta = document.getElementById("error-boleta");
+  const errorFecha = document.getElementById("error-fecha");
+  const mensajeExito = document.getElementById("mensaje-exito");
 
-const mensajes = {
-    nombre : "Solo letras y espacios, entre 2 y 60 caracteres.",
-    boleta : "Debe tener exactamente 10 dígitos numéricos.",
-    fecha : "La fecha debe tener el formato DD/MM/AAAA."
-};
+  form.addEventListener("submit", (event) => {
+    event.preventDefault(); 
 
-function validarCampo(campo, valor){
-    return patrones[campo].test(valor.trim())
-}
+    let valido = true;
 
-//para validar el formulario debemos ocupar los principios de obtención y manipulación de los elementos del DOM 
+    // limpiar mensajes previos
+    errorNombre.textContent = "";
+    errorBoleta.textContent = "";
+    errorFecha.textContent = "";
+    mensajeExito.textContent = "";
 
-if (typeof document !== 'undefined') {
-    const formulario = document.getElementById('form-registro');
+    // validar nombre
+    if (nombre.value.trim() === "") {
+      errorNombre.textContent = "El nombre es obligatorio.";
+      valido = false;
+    }
 
-    formulario.addEventListener('submit', (evento) => {
-        evento.preventDefault(); // Evita que el formulario se envíe automáticamente
+    // validar boleta
+    if (boleta.value.trim() === "") {
+      errorBoleta.textContent = "La boleta es obligatoria.";
+      valido = false;
+    }
 
-        let formularioValido = true;
+    // validar fecha DD/MM/AAAA)
+    const regexFecha = /^\d{2}\/\d{2}\/\d{4}$/;
+    if (!regexFecha.test(fecha.value.trim())) {
+      errorFecha.textContent = "La fecha debe tener formato DD/MM/AAAA.";
+      valido = false;
+    }
 
-        for(const campo of Object.keys(patrones)){
-            const input = document.getElementById(campo);
-            const errorSpan = document.getElementById(`error-${campo}`);
-            const esValido = validarCampo(campo, input.value);
-            input.classList.toggle('invalido', !esValido);
-            spanError.textContent = esValido ? '' : mensajes[campo];
-            if(!esValido) formularioValido = false;
-        }
-
-        const mensajeExito = document.getElementById('mensaje-exito');
-        mensajeExito.textContent = formularioValido ? 'Registro exitoso!' : '';
-        
-
-
-    });
-}
+    if (valido) {
+      mensajeExito.textContent = "¡Registro exitoso!";
+      form.reset(); 
+    }
+  });
+});
