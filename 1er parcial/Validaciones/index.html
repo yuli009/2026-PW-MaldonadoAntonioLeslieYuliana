@@ -2,30 +2,39 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Registrar Asistencia - CECyT 9</title>
+  <title>Catálogo de Talleres - CECyT 9</title>
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-  <header> 
-    <a href="./detalle.html">Volver al Taller</a>
+  <header>
+    <h1>Catálogo de Talleres - CECyT 9</h1>
+    <p>Selecciona un taller para registrar tu asistencia</p>
   </header>
   <main> 
-    <form class="formulario-registro" id="form-registro" novalidate> 
-      <h1>Registrar Asistencia</h1>
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" required>
-      <span class="error" id="error-nombre" ></span>
-      <label for="boleta">Número de Boleta:</label>
-      <input type="text" id="boleta" name="boleta" required>
-      <span class="error" id="error-boleta"></span>
-      <label for="fecha" >Fecha de Registro (DD/MM/AAAA)</label>
-      <input type="text" id="fecha" name="fecha" placeholder="DD/MM/AAAA" required>
-      <span class="error" id="error-fecha"></span>
-      <button type="submit">Registrar</button>
-      <p class="mensaje-exito" id="mensaje-exito" ></p> 
-    </form>
+    <section class="catalogo" >
+      <article class="tarjeta" >
+        <h2> <a href="./detalle.html" >Introducción a Python</a> </h2>
+        <p> Nombre del Instructor: Ing Maria Conchita Alonso</p>
+        <p> Fecha: 15/03/2023</p>
+      </article>
+
+      <article class="tarjeta" >
+        <h2> <a href="./detalle.html" >Redes y Chompus</a> </h2>
+        <p> Nombre del Instructor: Ing Jose Maria Peña</p>
+        <p> Fecha: 15/03/2023</p>
+      </article>
+
+      <article class="tarjeta" >
+        <h2> <a href="./detalle.html" >Porque no me Alcanza para el Nuevo Zelda</a> </h2>
+        <p> Nombre del Instructor: Ing Porque eres Pobre</p>
+        <p> Fecha: 15/03/2023</p>
+      </article>
+    </section>
+
   </main>
-  <script src="./js/validaciones.js"></script>
+  <footer>
+    <p>Registro de Asistencia - CECyT 9</p>
+  </footer>
 
 </body>
 </html>

@@ -10,7 +10,7 @@ body {
 }
 
 header{
-    background-color: #1f2937;
+    background-color: #5f89c5;
     color: #ffffff;
     padding: 1rem;
     text-align: center;
@@ -67,54 +67,65 @@ footer{
 
 /* 1. Regla para el formulario */
 .formulario-registro {
-  border: 2px solid #1546cf;
+  border: 2px solid #5f89c5;
   padding: 20px;
   width: 350px;
   margin: auto;
-  background-color: #5ea8ee;
+  background-color: #d7e7fd;
   border-radius: 8px;
 }
 
 /* 2. Regla para los inputs */
 .formulario-registro input {
-  display: block;
+  display:block;
   margin: 10px 0;
   padding: 8px;
-  border: 1px solid #56e6c6;
+  border: 1px solid #5f89c5;
   width: 100%;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 /* 3. Regla para el botón */
 .formulario-registro button {
-  background-color: rgb(134, 33, 143);
+  background-color: #a790e4;
   color: white;
   padding: 10px;
   border: none;
   cursor: pointer;
   width: 100%;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 /* 4. Hover sobre el botón */
 .formulario-registro button:hover {
-  background-color: rgb(0, 139, 35);
+  background-color: #fde6f7;
 }
 
 /* 5. Input inválido */
 .formulario-registro input:invalid {
-  border: 2px solid rgb(255, 230, 0);
+  border: 2px solid #eff15b;
 }
 
 /* Mensajes de error */
-.error {
-  color: rgb(255, 102, 0);
+.mesaje-error {
+  color: #b63e88;
   font-size: 0.9em;
 }
 
 /* 6. Mensaje de éxito */
 .mensaje-exito {
-  color: green;
+  color: rgb(145, 221, 145);
   font-weight: bold;
   margin-top: 10px;
 }
+
+/* boton- detalle */
+.info-taller button {
+  background-color: #a790e4;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 10px; }
+
+
