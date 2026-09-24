@@ -2,7 +2,9 @@
 
 /* CSS PARA EJERCICIOS DE ARREGLOS*/
 
-
+* {
+    box-sizing: border-box;
+}
 header {
   background-color: #5f89c5;
   color: white;
