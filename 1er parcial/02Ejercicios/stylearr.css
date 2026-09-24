@@ -1,81 +1,6 @@
-* {
-  box-sizing: border-box;
-}
 
-body {
-  margin: 0;
-  font-family: 'Courier New', Courier, monospace;
-  color: #1f2937;
-  background-color: #f9fafb;
-}
 
-/* Contenedor principal */
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-/* Bloque de contenido */
-.content {
-  background-color: #d7e7fd;
-  border: 2px solid #5f89c5;
-  border-radius: 10px;
-  padding: 2rem;
-}
-
-/* Título */
-.titulocontent h1 {
-  color: #5f89c5;
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-}
-
-.titulocontent p {
-  font-size: 1rem;
-  color: #374151;
-}
-
-/* Tabla */
-.tables table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1.5rem;
-  background-color: #ffffff;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-/* Encabezados */
-.tables th {
-  background-color: #a790e4;
-  color: white;
-  padding: 12px;
-  text-align: left;
-  font-weight: bold;
-}
-
-/* Filas */
-.tables td {
-  border: 1px solid #e5e7eb;
-  padding: 10px;
-}
-
-/* Enlaces */
-.tables a {
-  color: #3b82f6;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.tables a:hover {
-  color: #a790e4;
-  text-decoration: underline;
-}
-
-/* =========================================
-   CSS PARA EL EJERCICIO DE ARREGLOS
-   ========================================= */
+/* CSS PARA EJERCICIOS DE ARREGLOS*/
 
 
 header {
@@ -97,7 +22,7 @@ main {
   padding: 2rem;
 }
 
-/* Caja de contenido */
+/* Caja de contenido específica para el ejercicio */
 .ejercicio {
   background-color: #d7e7fd;
   border: 2px solid #5f89c5;
@@ -118,7 +43,7 @@ main {
   border-radius: 4px;
 }
 
-/* Tabla de talleres  */
+/* Tabla de talleres (usamos el ID para no afectar tus otras tablas) */
 .tabla-scroll {
   overflow-x: auto;
 }
@@ -195,7 +120,7 @@ main {
   background-color: #a790e4;
 }
 
-/* resultados como consola */
+/* resultados */
 .resultado {
   display: block;
   margin-top: 2rem;
