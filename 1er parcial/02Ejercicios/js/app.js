@@ -73,7 +73,7 @@ const resultadoObjeto = document.getElementById('resultado-objeto');
 formObjeto.addEventListener('submit', (evento) => {
     evento.preventDefault();
 
-    // Se corrigieron los IDs para que coincidan exactamente con el HTML
+    // Extraemos los datos actualizados del HTML
     const taller = {
         nombre : document.getElementById('obj_nombre').value,
         instructor : document.getElementById('obj-instructor').value,
@@ -82,38 +82,40 @@ formObjeto.addEventListener('submit', (evento) => {
     };
 
     const operacion = document.getElementById('operacion-objeto').value;
-    let resultado;
+    let resultadoTexto = '';
     
     switch(operacion){
         case 'keys':
-            resultado = JSON.stringify(Object.keys(taller));
+            const keys = Object.keys(taller);
+            resultadoTexto = `Object.keys (Propiedades):\n${keys.join(', ')}`;
             break;
-        case 'values':
-            // Se obtienen los valores y se pasan a string para verlos en pantalla
-            resultado = JSON.stringify(Object.values(taller));
-            break;
-        case 'entries':
-            // Se modificó ligeramente para que el salto de línea no separe la llave del valor
-            resultado = Object.entries(taller).map(([campo,valor]) => `${campo}: ${valor}`).join('\n');
-            break;
-        case 'stringify':
-            // Convierte el objeto a una cadena JSON con indentación de 2 espacios
-            resultado = JSON.stringify(taller, null, 2);
-            break;
-        case 'roundtrip':
-            const textoJson = JSON.stringify(taller, null, 2);
-            const objetoDeVuelta = JSON.parse(textoJson);
             
-            resultado = [
-                '--- TEXTO JSON ORIGINAL ---',
-                textoJson,
-                '',
-                '--- OBJETO CONVERTIDO DE VUELTA ---',
-                `Tipo de dato: ${typeof objetoDeVuelta}`,
-                `Propiedad 'nombre' extraída: ${objetoDeVuelta.nombre}`
-            ].join('\n');
+        case 'values':
+            const values = Object.values(taller);
+            resultadoTexto = `Object.values (Valores):\n${values.join(', ')}`;
             break;
+            
+        case 'entries':
+            let listaEntries = [];
+            for (const [campo, valor] of Object.entries(taller)) {
+                listaEntries.push(`- ${campo}: ${valor}`);
+            }
+            resultadoTexto = `Object.entries (Campo y valor):\n` + listaEntries.join('\n');
+            break;
+            
+        case 'stringify':
+            const textoJson = JSON.stringify(taller, null, 2);
+            resultadoTexto = `JSON.stringify (Tipo: ${typeof textoJson}):\n${textoJson}`;
+            break;
+            
+        case 'parse': // Cambiado para que coincida con tu HTML
+            const jsonString = JSON.stringify(taller, null, 2);
+            const objetoDeVuelta = JSON.parse(jsonString);
+            resultadoTexto = `JSON.parse (Tipo: ${typeof objetoDeVuelta}):\nObjeto recuperado exitosamente.\nPropiedad nombre: "${objetoDeVuelta.nombre}"`;
+            break;
+            
+        default:
+            resultadoTexto = 'Selecciona una operación válida.';
     }
-
-    resultadoObjeto.textContent = resultado;
+    resultadoObjeto.textContent = resultadoTexto;
 });
