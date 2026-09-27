@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejecicios con Node</title>
+    <title>Ejercicios con Node</title>
     <link rel="stylesheet" href="stylearr.css">
 </head>
 <body>
     <header>
-        <h1>Ejercicios con node</h1>
+        <h1>Ejercicios con Node</h1>
     </header>
     <main>
-        <section class="ejercicio" >
-            <h2 id="titulo-arreglos"> Arreglos del codigo <code>01-arreglos.js</code> </h2>
+        <!-- ==========================================
+             SECCIÓN 1: ARREGLOS
+             ========================================== -->
+        <section class="ejercicio">
+            <h2 id="titulo-arreglos"> Arreglos del código <code>01-arreglos.js</code> </h2>
             <p>Datos de prueba con JS</p>
-            <div class="tabla-scroll" >
+            
+            <div class="tabla-scroll">
                 <table id="tabla-talleres">
                     <thead>
                         <tr>
@@ -25,74 +29,75 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        <!-- Esta tabla se llena dinámicamente desde app.js -->
                     </tbody>
                 </table>
             </div>
 
-            <form id="form-arreglos" class="formulario" >
-                <div class="campos" >
-                    <label for="operacion-arreglo" name="operacion-arreglo">Operación</label>
+            <form id="form-arreglos" class="formulario">
+                <div class="campos">
+                    <label for="operacion-arreglo">Operación</label>
                     <select name="operacion-arreglo" id="operacion-arreglo">
-                        <option value="forEach">ForEach - Lista Simple</option>
+                        <option value="forEach">forEach - Lista Simple</option>
                         <option value="map">map - Copia solo Nombres</option>
                         <option value="filter">filter - Filtrar Talleres con cupo lleno</option>
                         <option value="find">find - Buscar por el nombre del instructor</option>
-                            <option value="reduce">reduce - Sumar todos los inscritos</option>
-
-                            <option value="filterMap">filter + map - Talleres con cupo disponible</option>
+                        <option value="reduce">reduce - Sumar todos los inscritos</option>
+                        <option value="filterMap">filter + map - Talleres con cupo disponible</option>
                     </select>
                 </div>
-
-                <button type="submit" >Ejecutar</button>
-
+                <button type="submit">Ejecutar</button>
             </form>
 
-            <output class="resultado" id="resultado-arreglo" for="form-arreglo" ></output>
+            <output class="resultado" id="resultado-arreglo" for="form-arreglos"></output>
         </section>
 
+        <!-- ==========================================
+             SECCIÓN 2: MANEJO DE OBJETOS
+             ========================================== -->
         <section class="ejercicio" aria-labelledby="titulo-objeto">
-            <h2 id="titulo-objeto">Manejon de Objectos y JSON </h2>
-            <p>eDita el talller y elige que operacion deseas aplicar</p>
+            <h2 id="titulo-objeto">Manejo de Objetos y JSON</h2>
+            <p>Edita el taller y elige qué operación deseas aplicar</p>
 
             <form id="form-objeto" class="formulario">
-                <div class="campo">
-                    <label for="obj-nombre">Nombre</label>
-                    <input type="text" name="obj-nombre" id="obj_nombre" value="Introduccion a Python">
-                 </div>
-
-                    <div class="campo">
-                    <label for="obj-instructor">Instructor</label>
-                    <input type="text" name="obj-instructor" id="obj-instructor" value="Maria Perez">
-                 </div>
-
-                <div class="campo">
-                    <label for="obj-cupo">CUPO</label>
-                    <input type="number" name="obj-cupo" id="obj_cupo" value="25" min="0">
-                 </div>
-                 <div class="campo">
-                    <label for="obj-inscritos">Inscritos</label>
-                    <input type="number" name="obj-inscritos" id="obj_inscritos" value="25" min="0">
-                 </div>
-
-                 <div class="campo">
-                    <label for="operacion-objeto">Tipo de operacion</label>
-                    <select name="operacion-objeto" id="operacion-objeto">
-                        <option value="keys">Object.keys</option>
-                        <option value="values">Object.values</option>
-                        <option value="entries">Object.entries</option>
-                        <option value="stringify">JSON a Cadena</option>
-                        <option value="roundtrip">Ida y Vuelta(JSON a Cadena)</option>
-                       
-             </select>
+                
+                <div class="campos">
+                    <label for="obj_nombre">Nombre</label>
+                    <input type="text" name="obj-nombre" id="obj_nombre" value="Introducción a Python">
                 </div>
-                <button type="submit">Ejecutar opcion</button>
-            </form>
-            <output class="resultado" id="resultado-objeto" for="form-objeto"></output>
 
+                <div class="campos">
+                    <label for="obj-instructor">Instructor</label>
+                    <input type="text" name="obj-instructor" id="obj-instructor" value="Ing. María López">
+                </div>
+
+                <div class="campos">
+                    <label for="obj_cupo">Cupo</label>
+                    <input type="number" name="obj-cupo" id="obj_cupo" value="25" min="0">
+                </div>
+                 
+                <div class="campos">
+                    <label for="obj_inscritos">Inscritos</label>
+                    <input type="number" name="obj-inscritos" id="obj_inscritos" value="25" min="0">
+                </div>
+
+                 <div class="campos" >
+                <label for="operacion-objeto" name="operacion-objeto">Operación</label>
+                    <select name="operacion-objeto" id="operacion-objeto">                <option value="keys">Object.keys</option>
+                <option value="values">Object.values</option>
+                    <option value="entries">Object.entries</option>
+                    <option value="stringify">JSON.stringify</option>
+                    <option value="parse">JSON.parse</option>
+                    </select>
+                </div>
+                <button type="submit" >Ejecutar</button>
+                 </form>
+            <output class="resultado" id="resultado-objeto" for="form-objetos" ></output>
+     
         </section>
     </main>
 
+    <!-- Enlace al archivo JavaScript -->
     <script src="./js/app.js"></script>
 </body>
 </html>
