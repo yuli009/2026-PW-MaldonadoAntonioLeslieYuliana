@@ -1,0 +1,16 @@
+{
+  "name": "proyectoexpress",
+  "version": "1.0.0",
+  "description": "\"Este es un proyacto con Expres\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yuli009",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "express": "^5.3.0",
+    "mysql2": "^3.24.5"
+  }
+}
